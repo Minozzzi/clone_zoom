@@ -3,7 +3,7 @@ class View {
   createVideoElement({ muted = true, src, srcObject }) {
     const video = document.createElement("video");
     video.muted = muted;
-    video.src = srcObject;
+    video.src = src;
     video.srcObject = srcObject;
     if (src) {
       video.controls = true;
@@ -17,9 +17,9 @@ class View {
   }
   renderVideo({ userId, stream = null, url = null, isCurrentId = false }) {
     const video = this.createVideoElement({ src: url, srcObject: stream });
-    this.appendToHtmlTree(userId, video, isCurrentId);
+    this.appendToHTMLTree(userId, video, isCurrentId);
   }
-  appendToHtmlTree(userId, video, isCurrentId) {
+  appendToHTMLTree(userId, video, isCurrentId) {
     const div = document.createElement("div");
     div.id = userId;
     div.classList.add("wrapper");
